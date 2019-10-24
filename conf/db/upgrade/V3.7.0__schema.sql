@@ -28,22 +28,6 @@ CREATE TABLE  IF NOT EXISTS `AppBuildSystemZoneRefVO` (
     CONSTRAINT `fkAppBuildSystemZoneRefVOAppBuildSystemVO` FOREIGN KEY (`buildSystemUuid`) REFERENCES AppBuildSystemVO (`uuid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `BuildAppOfferingVO` (
-    `uuid` VARCHAR(32) NOT NULL UNIQUE,
-    `name` VARCHAR(255) NOT NULL,
-    `description` VARCHAR(2048) DEFAULT NULL,
-    `type` varchar(32) NOT NULL,
-    `state` varchar(32) NOT NULL,
-    `appId` varchar(127) NOT NULL,
-    `appGroup` varchar(127) NOT NULL,
-    `appCategory` varchar(127) NOT NULL,
-    `lastOpDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-    `createDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-    PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE INDEX idxBuildAppOfferingVOappId ON BuildAppOfferingVO (appId);
-
 CREATE TABLE IF NOT EXISTS `BuildApplicationVO` (
     `uuid` VARCHAR(32) NOT NULL UNIQUE,
     `name` VARCHAR(255) NOT NULL,
